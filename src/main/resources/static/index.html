@@ -1,0 +1,34 @@
+<html ng-app="app">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+        .container {
+            height: 250px;
+            background: #44E394;
+            color: #fff;
+            overflow-y: auto;
+            width: 550px;
+            border-radius: 5px;
+            margin: 0 auto;
+            border: 1px dashed #11BD6D;
+        }
+    </style>
+</head>
+
+<body ng-controller='EmpCtrl' style="text-align: center;">
+    <h2>Employess List( {{current}} / {{total}})</h2>
+    <div>
+        <div class="container" when-scrolled="loadResults()">
+            <div ng-repeat="emp in empList">
+                <div> {{emp}}</div>
+            </div>
+        </div>
+        <div ng-show='loading'>Loading next {{limit}} results please wait</div>
+    </div>
+
+</body>
+
+</html>
